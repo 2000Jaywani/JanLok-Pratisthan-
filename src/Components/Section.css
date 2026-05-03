@@ -1,0 +1,278 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.section-page {
+  width: 100%;
+  min-height: 100vh;
+  padding: 20px;
+  background: #f5f7fb;
+}
+
+.section-layout {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.section-card {
+  flex: 1;
+  min-width: 320px;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.section-heading {
+  margin-bottom: 18px;
+  color: #222;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.section-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.section-input {
+  width: 100%;
+  padding: 11px;
+  border: 1px solid #dcdcdc;
+  border-radius: 8px;
+  margin-bottom: 14px;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.section-input:focus {
+  border-color: #0d6efd;
+  outline: none;
+}
+
+.section-submit-btn {
+  padding: 11px;
+  border: none;
+  border-radius: 8px;
+  background: #0d6efd;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.section-submit-btn:hover {
+  background: #0b5ed7;
+}
+
+.section-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.section-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.section-table thead {
+  background: #0d6efd;
+  color: white;
+}
+
+.section-table th,
+.section-table td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid #ececec;
+  font-size: 14px;
+}
+
+.section-table tbody tr:hover {
+  background: #f9fbff;
+}
+
+.section-edit-btn {
+  background: #198754;
+  color: white;
+  border: none;
+  padding: 7px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-right: 6px;
+  font-size: 13px;
+  transition: 0.3s;
+}
+
+.section-edit-btn:hover {
+  background: #157347;
+}
+
+.section-delete-btn {
+  background: #dc3545;
+  color: white;
+  border: none;
+  padding: 7px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: 0.3s;
+}
+
+.section-delete-btn:hover {
+  background: #bb2d3b;
+}
+
+.section-empty-row {
+  padding: 18px;
+  color: #777;
+  font-weight: 500;
+}
+
+.section-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.section-modal-box {
+  width: 320px;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  animation: sectionFadeIn 0.3s ease;
+}
+
+.section-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.section-modal-header h3 {
+  font-size: 18px;
+  color: #222;
+}
+
+.section-close-icon {
+  font-size: 18px;
+  color: #dc3545;
+  cursor: pointer;
+}
+
+.section-modal-input {
+  width: 100%;
+  padding: 11px;
+  border: 1px solid #dcdcdc;
+  border-radius: 8px;
+  margin: 18px 0;
+  font-size: 14px;
+}
+
+.section-modal-input:focus {
+  outline: none;
+  border-color: #0d6efd;
+}
+
+.section-update-btn {
+  width: 100%;
+  padding: 11px;
+  border: none;
+  border-radius: 8px;
+  background: #0d6efd;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.section-update-btn:hover {
+  background: #0b5ed7;
+}
+
+.section-toast-actions {
+  margin-top: 12px;
+}
+
+.section-confirm-btn {
+  background: #198754;
+  color: white;
+  border: none;
+  padding: 7px 14px;
+  border-radius: 6px;
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+.section-cancel-btn {
+  background: #dc3545;
+  color: white;
+  border: none;
+  padding: 7px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+@keyframes sectionFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 768px) {
+  .section-layout {
+    flex-direction: column;
+  }
+
+  .section-card {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-page {
+    padding: 12px;
+  }
+
+  .section-heading {
+    text-align: center;
+    font-size: 18px;
+  }
+
+  .section-table th,
+  .section-table td {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  .section-edit-btn,
+  .section-delete-btn {
+    font-size: 11px;
+    padding: 5px 8px;
+  }
+
+  .section-modal-box {
+    width: 90%;
+  }
+}
+

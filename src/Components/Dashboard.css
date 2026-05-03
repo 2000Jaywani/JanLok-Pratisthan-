@@ -1,0 +1,14 @@
+.dashboard {
+  display: flex;
+}
+
+.dashboard-content {
+  flex: 1;
+  margin-left: 250px;
+  background: #ECEFF2;
+  min-height: 100vh;
+}
+
+.page-content {
+  padding: 20px;
+}

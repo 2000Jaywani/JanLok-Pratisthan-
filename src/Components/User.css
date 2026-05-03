@@ -1,0 +1,381 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.user-page-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  background: #f4f7fc;
+  padding: 20px;
+}
+
+.user-header-section {
+  margin-bottom: 20px;
+}
+
+.user-page-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 20px;
+}
+
+.user-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.user-search-box {
+  flex: 1;
+  min-width: 260px;
+  display: flex;
+  align-items: center;
+  background: white;
+  padding: 12px 15px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+}
+
+.user-search-icon {
+  color: #777;
+  margin-right: 10px;
+}
+
+.user-search-box input {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 14px;
+}
+
+.user-export-group {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.user-export-btn {
+  border: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.pdf-btn {
+  background: #dc3545;
+}
+
+.csv-btn {
+  background: #17a2b8;
+}
+
+.excel-btn {
+  background: #198754;
+}
+
+.user-export-btn:hover {
+  transform: translateY(-2px);
+}
+
+.user-table-container {
+  width: 100%;
+  overflow-x: auto;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+.user-data-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.user-data-table thead {
+  background: #0d6efd;
+  color: white;
+}
+
+.user-data-table th,
+.user-data-table td {
+  padding: 14px;
+  text-align: center;
+  border-bottom: 1px solid #ececec;
+  font-size: 14px;
+}
+
+.user-data-table tbody tr:hover {
+  background: #f8fbff;
+}
+
+.user-profile-image {
+  width: 70px;
+  height: 70px;
+  /* border-radius: 50%; */
+  object-fit: cover;
+  border: 2px solid #ddd;
+}
+
+.user-action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.user-action-btn {
+  width: 35px;
+  height: 35px;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.view-btn {
+  background: #0d6efd;
+}
+
+.edit-btn {
+  background: #198754;
+}
+
+.delete-btn {
+  background: #dc3545;
+}
+
+.user-action-btn:hover {
+  transform: scale(1.05);
+}
+
+.user-no-data {
+  padding: 20px;
+  color: #777;
+  font-weight: 600;
+}
+
+.user-pagination-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.user-pagination-wrapper button {
+  min-width: 38px;
+  height: 38px;
+  border: none;
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.user-pagination-wrapper button:hover {
+  background: #0d6efd;
+  color: white;
+}
+
+.active-page {
+  background: #0d6efd !important;
+  color: white;
+}
+
+.user-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  padding: 15px;
+}
+
+.user-modal-box {
+  width: 100%;
+  max-width: 500px;
+  background: white;
+  border-radius: 14px;
+  padding: 25px;
+  position: relative;
+  animation: userModalFade 0.3s ease;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.user-modal-title {
+  font-size: 22px;
+  color: #222;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.user-modal-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 34px;
+  height: 34px;
+  border: none;
+  border-radius: 50%;
+  background: #f1f1f1;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.user-modal-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto 20px;
+  object-fit: cover;
+  border: 3px solid #ddd;
+}
+
+.user-details-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.user-details-grid p {
+  background: #f7f9fc;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.user-modal-input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 14px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+}
+
+.user-modal-input:focus {
+  border-color: #0d6efd;
+}
+
+.user-save-btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  background: #0d6efd;
+  color: white;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.user-save-btn:hover {
+  background: #0b5ed7;
+}
+
+.user-toast-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.user-confirm-btn {
+  background: #198754;
+  color: white;
+  border: none;
+  padding: 7px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.user-cancel-btn {
+  background: #dc3545;
+  color: white;
+  border: none;
+  padding: 7px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+@keyframes userModalFade {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 768px) {
+  .user-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .user-export-group {
+    justify-content: center;
+  }
+
+  .user-page-title {
+    text-align: center;
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .user-page-wrapper {
+    padding: 12px;
+  }
+
+  .user-data-table th,
+  .user-data-table td {
+    padding: 10px;
+    font-size: 12px;
+  }
+
+  .user-profile-image {
+    width: 45px;
+    height: 45px;
+  }
+
+  .user-action-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 12px;
+  }
+
+  .user-modal-box {
+    padding: 18px;
+  }
+
+  .user-modal-title {
+    font-size: 18px;
+  }
+}
