@@ -1,0 +1,158 @@
+/* PAGE BACKGROUND */
+.committee-page {
+  padding: 40px;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #eef2ff, #fdfbfb);
+}
+
+/* HEADER */
+.header-section {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.header-section h2 {
+  font-size: 32px;
+  font-weight: 700;
+  background: linear-gradient(45deg, #4f46e5, #9333ea);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.header-section p {
+  color: #666;
+  margin-top: 8px;
+}
+
+/* GRID */
+.committee-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+/* CARD */
+.committee-card {
+  border-radius: 20px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  transition: all 0.4s ease;
+  position: relative;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+/* FEATURED CARD */
+.featured {
+  grid-column: span 2;
+}
+
+/* HOVER EFFECT */
+.committee-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+/* IMAGE */
+.card-image {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+/* IMAGE ZOOM */
+.committee-card:hover img {
+  transform: scale(1.1);
+}
+
+/* OVERLAY */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.7),
+    rgba(0,0,0,0.2)
+  );
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 15px;
+  opacity: 0;
+  transition: 0.4s;
+}
+
+.committee-card:hover .overlay {
+  opacity: 1;
+}
+
+.overlay h4 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.overlay span {
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+/* NO IMAGE */
+.no-image {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ddd;
+  color: #777;
+}
+
+/* BODY */
+.card-body {
+  padding: 18px;
+}
+
+.card-body h3 {
+  font-size: 18px;
+  color: #222;
+}
+
+.card-body .role {
+  font-size: 14px;
+  font-weight: 600;
+  color: #6366f1;
+  margin: 5px 0;
+}
+
+.card-body .section {
+  font-size: 13px;
+  color: #888;
+  margin-bottom: 10px;
+}
+
+.card-body .desc {
+  font-size: 13px;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* EMPTY */
+.no-data {
+  grid-column: span 3;
+  text-align: center;
+  color: #888;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .featured {
+    grid-column: span 1;
+  }
+}

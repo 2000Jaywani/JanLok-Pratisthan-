@@ -1,0 +1,90 @@
+/* ROOT BACKGROUND */
+.loader-container {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(180deg, #f9fafb, #f1f5f9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+/* CARD */
+.loader-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  padding: 48px 60px;
+  border-radius: 18px;
+  text-align: center;
+  min-width: 280px;
+
+  /* Soft layered shadow (premium feel) */
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.06),
+    0 4px 10px rgba(0, 0, 0, 0.04);
+
+  /* Entrance animation */
+  animation: fadeSlide 0.5s ease;
+}
+
+/* SPINNER CONTAINER */
+.spinner {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 24px;
+}
+
+/* RINGS */
+.ring {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top: 3px solid #2563eb;
+  animation: spin 1s linear infinite;
+}
+
+/* SECOND RING */
+.ring2 {
+  border-top: 3px solid #60a5fa;
+  animation-duration: 1.5s;
+  opacity: 0.7;
+}
+
+/* TITLE */
+.loader-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #0f172a;
+  margin-bottom: 6px;
+  letter-spacing: 0.3px;
+}
+
+/* TEXT */
+.loader-text {
+  font-size: 14px;
+  color: #64748b;
+  letter-spacing: 0.3px;
+}
+
+/* SPIN */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* FADE + SLIDE */
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}

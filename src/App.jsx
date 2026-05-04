@@ -1,4 +1,6 @@
 import { Routes, Route, useLocation, Navigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+
 import Navbar from "./Components/Navbar";
 import Admin from "./Components/Admin";
 import Home from "./Components/Home";
@@ -8,12 +10,13 @@ import User from "./Components/User";
 import Section from "./Components/Section";
 import Content from "./Components/Content";
 import Setting from "./Components/Setting";
+import Loader from "./Components/Loader";
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-// ✅ IMPORT CURSOR
 import AnimatedCursor from "react-animated-cursor";
+import Comittee from "./Components/Comittee";
 
 // ✅ PRIVATE ROUTE
 const PrivateRoute = ({ children }) => {
@@ -24,16 +27,44 @@ const PrivateRoute = ({ children }) => {
 function App() {
   const location = useLocation();
 
-  // ✅ Hide navbar for slider/dashboard
+  // ✅ LOADER STATE
+  const [loading, setLoading] = useState(true);
+
+  // ✅ INITIAL LOAD
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 1500); // first load
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  // ✅ ROUTE CHANGE LOADER
+  useEffect(() => {
+    setLoading(true);
+
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 700); // route change speed
+
+    return () => clearTimeout(timer);
+  }, [location.pathname]);
+
+  // ✅ HIDE NAVBAR FOR SPECIFIC ROUTES
   const hideNavbarRoutes = ["/slider", "/dashboard"];
 
   const hideNavbar =
     hideNavbarRoutes.includes(location.pathname) ||
     location.pathname.startsWith("/slider");
 
+  // ✅ SHOW LOADER
+  if (loading) {
+    return <Loader />;
+  }
+
   return (
     <>
-      {/* ✅ PROFESSIONAL CURSOR (ADD HERE) */}
+      {/* ✅ CUSTOM CURSOR */}
       <AnimatedCursor
         innerSize={8}
         outerSize={35}
@@ -47,19 +78,19 @@ function App() {
           "input",
           "textarea",
           "select",
-          ".submit-btn"
+          ".submit-btn",
         ]}
       />
 
-      {/* ✅ Navbar */}
+      {/* ✅ NAVBAR */}
       {!hideNavbar && <Navbar />}
 
-      {/* ✅ Toast */}
+      {/* ✅ TOAST */}
       <ToastContainer position="top-right" autoClose={2000} />
 
-      {/* ✅ Routes */}
+      {/* ✅ ROUTES */}
       <Routes>
-        {/* PUBLIC ROUTES */}
+        {/* PUBLIC */}
         <Route path="/" element={<Home />} />
         <Route path="/admin" element={<Admin />} />
 
@@ -69,7 +100,9 @@ function App() {
         <Route path="/forms" element={<h1>Forms Page</h1>} />
         <Route path="/videos" element={<h1>Videos Page</h1>} />
         <Route path="/about" element={<h1>About Page</h1>} />
-        <Route path="/committee" element={<h1>Committee Page</h1>} />
+
+        <Route path="/committee" element={<Comittee/>} />
+
         <Route path="/contacts" element={<h1>Contacts Page</h1>} />
 
         {/* DASHBOARD */}
@@ -95,7 +128,6 @@ function App() {
           <Route path="user" element={<User />} />
           <Route path="section" element={<Section />} />
           <Route path="content" element={<Content />} />
-
           <Route path="setting" element={<Setting />} />
         </Route>
 
@@ -107,107 +139,3 @@ function App() {
 }
 
 export default App;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import { Routes, Route, useLocation, Navigate } from "react-router-dom";
-// import Navbar from "./Components/Navbar";
-// import Admin from "./Components/Admin";
-// import Home from "./Components/Home";
-// import Slider from "./Components/Slider";
-// import Dashboard from "./Components/Dashboard";
-// import User from "./Components/User";
-// import Section from "./Components/Section";
-// import Content from "./Components/Content";
-
-// import { ToastContainer } from "react-toastify";
-// import "react-toastify/dist/ReactToastify.css";
-
-// // ✅ PRIVATE ROUTE
-// const PrivateRoute = ({ children }) => {
-//   const isLoggedIn = localStorage.getItem("isAdminLoggedIn");
-//   return isLoggedIn ? children : <Navigate to="/admin" replace />;
-// };
-
-// function App() {
-//   const location = useLocation();
-
-//   // ✅ Hide navbar for ALL slider child routes also
-//   const hideNavbarRoutes = ["/slider", "/dashboard"];
-
-//   const hideNavbar =
-//     hideNavbarRoutes.includes(location.pathname) ||
-//     location.pathname.startsWith("/slider");
-
-//   return (
-//     <>
-//       {/* ✅ Navbar condition */}
-//       {!hideNavbar && <Navbar />}
-
-//       <ToastContainer position="top-right" autoClose={2000} />
-
-//       <Routes>
-//         {/* PUBLIC ROUTES */}
-//         <Route path="/" element={<Home />} />
-//         <Route path="/admin" element={<Admin />} />
-
-//         <Route path="/events" element={<h1>Events Page</h1>} />
-//         <Route path="/news" element={<h1>News Page</h1>} />
-//         <Route path="/downloads" element={<h1>Downloads Page</h1>} />
-//         <Route path="/forms" element={<h1>Forms Page</h1>} />
-//         <Route path="/videos" element={<h1>Videos Page</h1>} />
-//         <Route path="/about" element={<h1>About Page</h1>} />
-//         <Route path="/committee" element={<h1>Committee Page</h1>} />
-//         <Route path="/contacts" element={<h1>Contacts Page</h1>} />
-
-//         {/* ✅ DASHBOARD (OPTIONAL PAGE) */}
-//         <Route
-//           path="/dashboard"
-//           element={
-//             <PrivateRoute>
-//               <Dashboard />
-//             </PrivateRoute>
-//           }
-//         />
-
-//         {/* ✅ SLIDER WITH NESTED ROUTES */}
-//         <Route
-//           path="/slider"
-//           element={
-//             <PrivateRoute>
-//               <Slider />
-//             </PrivateRoute>
-//           }
-//         >
-//           {/* DEFAULT ROUTE */}
-//           <Route index element={<Navigate to="user" replace />} />
-
-//           {/* CHILD ROUTES */}
-//           <Route path="user" element={<User />} />
-//           <Route path="section" element={<Section />} />
-//           <Route path="content" element={<Content />} />
-//         </Route>
-
-//         {/* ✅ FALLBACK */}
-//         <Route path="*" element={<Navigate to="/" />} />
-//       </Routes>
-//     </>
-//   );
-// }
-
-// export default App;
-

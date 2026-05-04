@@ -2,12 +2,12 @@ import React, { useState, useEffect, useRef } from "react";
 import "./Navbar.css";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
+import Content from "./Content";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const navRef = useRef();
 
-  // ✅ Close menu when clicking outside
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (navRef.current && !navRef.current.contains(e.target)) {
@@ -21,14 +21,13 @@ function Navbar() {
     };
   }, []);
 
-  // ✅ Close menu on link click
   const closeMenu = () => {
     setIsOpen(false);
   };
 
   return (
     <nav className="navbar" ref={navRef}>
-      {/* LOGO */}
+
       <div className="logo-container">
         <NavLink to="/" className="logo-text" onClick={closeMenu}>
           जनलोक प्रतिष्ठान संघटना
@@ -86,6 +85,7 @@ function Navbar() {
         </li>
 
         <li>
+         
           <NavLink to="/committee" onClick={closeMenu}>
             Committee
           </NavLink>
