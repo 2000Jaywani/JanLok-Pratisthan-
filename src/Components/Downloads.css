@@ -1,0 +1,233 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.docpage-wrapper {
+  min-height: 100vh;
+  padding: 25px;
+  background: linear-gradient(135deg, #eef5ff, #f8fbff);
+  font-family: "Segoe UI", sans-serif;
+}
+
+.docpage-header-box {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.docpage-main-title {
+  font-size: 34px;
+  font-weight: 700;
+  color: #0b2e59;
+}
+
+.docpage-sub-title {
+  font-size: 15px;
+  color: #5d6d7e;
+  margin-top: 8px;
+}
+
+.docpage-layout-grid {
+  display: flex;
+  gap: 25px;
+  align-items: flex-start;
+}
+
+.docpage-form-card,
+.docpage-table-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 25px;
+  box-shadow: 0 10px 35px rgba(0, 60, 120, 0.08);
+  transition: 0.3s ease;
+}
+
+.docpage-form-card:hover,
+.docpage-table-card:hover {
+  transform: translateY(-3px);
+}
+
+.docpage-form-card {
+  width: 32%;
+}
+
+.docpage-table-card {
+  width: 68%;
+}
+
+.docpage-section-title {
+  font-size: 22px;
+  margin-bottom: 20px;
+  color: #123a67;
+  border-left: 5px solid #007bff;
+  padding-left: 10px;
+}
+
+.docpage-form-box {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.docpage-field-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.docpage-field-wrap label {
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #2d3e50;
+}
+
+.docpage-field-wrap input,
+.docpage-field-wrap textarea,
+.docpage-page-select,
+.docpage-search-box {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #dbe5f0;
+  border-radius: 10px;
+  font-size: 14px;
+  transition: 0.3s;
+  background: #fbfdff;
+}
+
+.docpage-field-wrap input:focus,
+.docpage-field-wrap textarea:focus,
+.docpage-search-box:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+.docpage-field-wrap textarea {
+  resize: none;
+  min-height: 110px;
+}
+
+.docpage-submit-btn {
+  background: linear-gradient(135deg, #007bff, #0056d2);
+  color: white;
+  padding: 13px;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.docpage-submit-btn:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 20px rgba(0, 123, 255, 0.25);
+}
+
+.docpage-table-topbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.docpage-search-box {
+  flex: 1;
+}
+
+.docpage-page-select {
+  width: 120px;
+  cursor: pointer;
+}
+
+.docpage-table-scroll {
+  overflow-x: auto;
+  border-radius: 12px;
+}
+
+.docpage-data-table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.docpage-data-table thead {
+  background: linear-gradient(135deg, #0d6efd, #003f99);
+  color: white;
+}
+
+.docpage-data-table th,
+.docpage-data-table td {
+  padding: 15px;
+  text-align: left;
+  font-size: 14px;
+}
+
+.docpage-data-table tbody tr {
+  border-bottom: 1px solid #edf2f7;
+  transition: 0.3s;
+}
+
+.docpage-data-table tbody tr:hover {
+  background: #f4f9ff;
+}
+
+.docpage-download-btn {
+  background: linear-gradient(135deg, #28a745, #1e8b37);
+  color: white;
+  border: none;
+  padding: 9px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.docpage-download-btn:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 992px) {
+  .docpage-layout-grid {
+    flex-direction: column;
+  }
+
+  .docpage-form-card,
+  .docpage-table-card {
+    width: 100%;
+  }
+
+  .docpage-table-topbar {
+    flex-direction: column;
+  }
+
+  .docpage-page-select {
+    width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .docpage-wrapper {
+    padding: 12px;
+  }
+
+  .docpage-main-title {
+    font-size: 24px;
+  }
+
+  .docpage-sub-title {
+    font-size: 13px;
+  }
+
+  .docpage-form-card,
+  .docpage-table-card {
+    padding: 16px;
+  }
+
+  .docpage-data-table th,
+  .docpage-data-table td {
+    padding: 10px;
+    font-size: 12px;
+  }
+}

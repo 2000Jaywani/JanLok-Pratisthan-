@@ -10,6 +10,8 @@ import {
   FaTimes,
 } from "react-icons/fa";
 
+import { FaFileDownload } from "react-icons/fa";
+
 import {
   useNavigate,
   Outlet,
@@ -239,6 +241,25 @@ function Slider() {
               <FaFileAlt />
               <span>Content</span>
             </li>
+
+
+           <li
+              className={
+                activePath ===
+                "/slider/downloads"
+                  ? "active"
+                  : ""
+              }
+              onClick={() =>
+                navigate("/slider/downloads")
+              }
+            >
+              <FaFileDownload /> 
+              <span>Downloads</span>
+            </li>      
+
+
+
 
            <li
               className={

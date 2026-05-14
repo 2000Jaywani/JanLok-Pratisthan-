@@ -17,6 +17,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 import AnimatedCursor from "react-animated-cursor";
 import Comittee from "./Components/Comittee";
+import Downloads from "./Components/Downloads";
 
 // ✅ PRIVATE ROUTE
 const PrivateRoute = ({ children }) => {
@@ -129,6 +130,9 @@ function App() {
           <Route path="section" element={<Section />} />
           <Route path="content" element={<Content />} />
           <Route path="setting" element={<Setting />} />
+
+          <Route path="downloads" element={<Downloads />} />
+          
         </Route>
 
         {/* FALLBACK */}
