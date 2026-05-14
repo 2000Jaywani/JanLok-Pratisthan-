@@ -138,7 +138,7 @@ function Comittee() {
               </p>
 
               <div className="committee-action-buttons">
-
+{/* 
                 <button className="edit-btn">
                   <FaEdit />
                 </button>
@@ -148,7 +148,7 @@ function Comittee() {
                   onClick={() => deleteMember(member.comiteId)}
                 >
                   <FaTrash />
-                </button>
+                </button> */}
 
               </div>
             </div>
