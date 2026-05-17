@@ -63,6 +63,7 @@ function Navbar() {
         <li>
           <NavLink to="/downloads" onClick={closeMenu}>
             Downloads
+
           </NavLink>
         </li>
 
@@ -106,6 +107,15 @@ function Navbar() {
             Contacts
           </NavLink>
         </li>
+
+
+
+        <li>
+          <NavLink to="/review" onClick={closeMenu}>
+            review
+          </NavLink>
+        </li>
+
       </ul>
     </nav>
   );
